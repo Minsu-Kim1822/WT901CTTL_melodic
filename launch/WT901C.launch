@@ -1,0 +1,16 @@
+<launch>
+
+    <!-- <include file="$(find orb_slam2)/launch/include/rs_rgbd.launch"></include > -->
+
+    <!-- <node pkg="tf" type="static_transform_publisher" name="tf_bc" args="0.3 0 0.35 0 0 0 /base_link /camera_link 100" /> -->
+
+    <node pkg="wit_driver" type="wit_driver_node" name="wit_node" output="screen">
+        <param name="port" value="ttyUSB0"/>
+        <param name="baudrate" value="9600"/>
+        <param name="publish_rate" value="20"/>
+        <param name="publish_mag" value="true"/>
+        <param name="imu_topic" value="imu_data"/>
+        <param name="mag_topic" value="mag_data"/>
+        <param name="imu_frame" value="imu_link"/>
+    </node>
+</launch>
