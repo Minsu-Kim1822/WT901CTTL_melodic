@@ -121,10 +121,15 @@ int main(int argc, char **argv)
             imu_data.angular_velocity.z = imu.gyro.z;
             imu_data.linear_acceleration_covariance = {1e-6, 0, 0, 0, 1e-6, 0, 0, 0, 1e-6};
 
-            imu_data.orientation.x = imu.quat.x;
-            imu_data.orientation.y = imu.quat.y;
-            imu_data.orientation.z = imu.quat.z;
-            imu_data.orientation.w = imu.quat.w;
+            // imu_data.orientation.x = imu.quat.x;
+            // imu_data.orientation.y = imu.quat.y;
+            // imu_data.orientation.z = imu.quat.z;
+            // imu_data.orientation.w = imu.quat.w;
+            // imu_data.orientation_covariance = {1e-6, 0, 0, 0, 1e-6, 0, 0, 0, 1e-6};
+
+            imu_data.orientation.x = imu.mag.x;
+            imu_data.orientation.y = imu.mag.y;
+            imu_data.orientation.z = imu.mag.z;
             imu_data.orientation_covariance = {1e-6, 0, 0, 0, 1e-6, 0, 0, 0, 1e-6};
 
             imu_pub.publish(imu_data);
